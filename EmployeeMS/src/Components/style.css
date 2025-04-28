@@ -1,0 +1,39 @@
+.loginPage {
+    background: linear-gradient(rgba(11, 11, 11, 0.5), rgba(10, 10, 10, 0.5)), url("Images/employeems.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed; /* optional: makes it stay fixed while scrolling */
+}
+
+.loginForm {
+    background-color: rgba(1, 32, 93, 0.6);
+    color: white;
+}
+
+ul li :hover {
+    background-color: gray;
+}
+
+.employee_image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.emp_det_image {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+}
+
+.profilePage {
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('Images/adminbg.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.profileCard {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #333;
+}
