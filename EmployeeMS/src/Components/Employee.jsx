@@ -7,11 +7,12 @@ const Employee = () => {
   const [page,setPage]=useState(1)
   const [limit,setLimit]=useState(10)
   const [totalPage,setTotalPage]=useState(1)
+  const [search,setSearch]=useState("")
   //const navigate = useNavigate()
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/auth/employee?page=${page}&limit=${limit}`,)
+      .get(`http://localhost:3000/auth/employee?page=${page}&limit=${limit}&search=${search}`,)
       .then((result) => {
         if (result.data.Status) {
           setTotalPage(result.data.totalPage)
@@ -21,7 +22,7 @@ const Employee = () => {
         }
       })
       .catch((err) => console.log(err));
-  }, [page,limit]);
+  }, [page,limit,search]);
   const handleDelete = (id) => {
     axios.delete('http://localhost:3000/auth/delete_employee/'+id)
     .then(result => {
@@ -43,9 +44,12 @@ const Employee = () => {
       <div className="d-flex justify-content-center">
         <h3>Employee List</h3>
       </div>
-      <Link to="/dashboard/add_employee" className="btn btn-success">
+     <div className="d flex justify-content-between">
+      <input type="text" value={search} onChange={(e)=>setSearch(e.target.value)} className="flex-1 px-3 bg-tertiary" />
+     <Link to="/dashboard/add_employee" className="btn btn-success">
         Add Employee
       </Link>
+     </div>
       <div className="mt-3">
         <table className="table">
           <thead>

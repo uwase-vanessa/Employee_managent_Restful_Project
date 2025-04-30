@@ -79,10 +79,11 @@ router.post('/add_employee',upload.single('image'), (req, res) => {
 })
 
 router.get('/employee', (req, res) => {
+const search=req.query.search||""
 const limit = parseInt(req.query.limit) || 10; 
 const page = parseInt(req.query.page) || 1;   
 const offset = (page - 1) * limit;
-const sql = `SELECT * FROM employee LIMIT ${limit} OFFSET ${offset}`;
+const sql = `SELECT * FROM employee WHERE name LIKE '%${search}%' OR email LIKE '%${search}%' OR address LIKE '%${search}%' LIMIT ${limit} OFFSET ${offset}`;
 let totalPage;
 const totalResultSql="select count(id) as employee from employee"
 con.query(totalResultSql, (err, result) => {
