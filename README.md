@@ -63,3 +63,22 @@ Run backend and frontend servers
 
 📄 License
 Free to use and modify.
+
+
+CREATE TABLE employee(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,  /* Increased for hashed passwords */
+    salary DOUBLE NOT NULL,
+    address VARCHAR(100) NOT NULL,
+    image VARCHAR(100) NOT NULL,
+    category_id INT NOT NULL,
+    FOREIGN KEY (category_id) REFERENCES category(id)
+);
+
+CREATE TABLE admin(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE
+    );
